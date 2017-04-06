@@ -3,7 +3,7 @@ CFLAGS=-c -Wall
 LDFLAGS=-std=c++11
 SOURCES=main.cpp utility/readFile.cpp utility/outputFormatting.cpp utility/sorting.cpp proc/processInfo.cpp proc/cpuInfo.cpp proc/memoryInfo.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=process_list
+EXECUTABLE=process_list.out
 
 all: $(SOURCES) $(EXECUTABLE)
 	
@@ -14,6 +14,6 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o process_list
+	rm -rf *.o process_list.out
 	rm -rf proc/*.o
 	rm -rf utility/*.o
