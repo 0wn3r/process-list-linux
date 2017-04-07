@@ -7,6 +7,6 @@ on Fedora/CentOS:
 
 > yum install ncurses-devel ncurses
 
-and then simply run
+and then simply run in process-list-linux folder:
 
 > make
