@@ -10,3 +10,7 @@ on Fedora/CentOS:
 and then simply run in process-list-linux folder:
 
 > make
+
+to execute run:
+
+> ./process_list.out
