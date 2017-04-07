@@ -22,22 +22,15 @@ int main()
     init_pair(1, COLOR_BLACK, COLOR_CYAN);
     while(c != 'q')
     {
-        int y = getmaxy(stdscr);
-        try
-        {
-            info = getProcessesInfo();
-        }
-        catch(std::exception &e)
-        {
-            endwin();
-            exit(EXIT_FAILURE);
-        }
-        
+        info = getProcessesInfo();
+
         wclear(stdscr);
         printw("Sorting by - PID: \'p\' - CPU: \'c\' - MEM: \'m\'\nTo exit press - \'q\'\n");
         attron(COLOR_PAIR(1));
         printw("%s", formatHeader().c_str());
         attroff(COLOR_PAIR(1));
+
+        int y = getmaxy(stdscr);
 
         printw("%s", formatProcessTable(info, totalMemory, y, sorting).c_str());
         

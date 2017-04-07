@@ -180,7 +180,14 @@ std::vector<ProcessInfo> getAllProcesses(const char *basedir)
 
         if (pidString[0] < '1' || pidString[0] > '9')
             continue;
-        result.push_back(getProcess(std::stoi(pidString), basedir));
+        try
+        {
+            result.push_back(getProcess(std::stoi(pidString), basedir));
+        }
+        catch(std::exception &e)
+        {
+            std::cerr << "Process " << pidString << " is not available" << std::endl;
+        }
     }
 
     closedir(pDir);
